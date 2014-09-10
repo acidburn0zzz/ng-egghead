@@ -1,28 +1,30 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>3-controllers</title>
+    <title>Share Data Between Controllers</title>
     <link type="text/css" rel="stylesheet" href="../assets/foundation.min.css">
-    <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
 
     <!-- ng app -->
-    <div ng-app="">
-
-      <!-- ng controller -->
+    <div ng-app="myApp">
       <div ng-controller="FirstCtrl">
-        <h1>{{ data.message + " world"}}</h1>
-        <div class="{{data.message}}">
-          Wrap me in a foundation component
-        </div>
+        <input type="text" ng-model="data.message"/>
+        <h2>{{ data.message }}</h2>
       </div>
 
+      <div ng-controller="SecondCtrl">
+        <input type="text" ng-model="data.message"/>
+        <h2>{{ data.message }}</h2>
+      </div>
     </div>
 
     <!-- ng -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js">
     </script>
 
+    <!-- logic -->
+    <script src="index.js">
+    </script>
   </body>
 </html>
