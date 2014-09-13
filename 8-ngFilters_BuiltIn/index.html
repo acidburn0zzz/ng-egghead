@@ -6,40 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>ng-repeat and filtering</title>
+    <title>Egghead Videos</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="../assets/foundation.css">
   </head>
   <body>
-    <style>
-      body {
-        font-family: helvetica neue;
-        font-size: 13px;
-        font-weight: lighter;
-      }
-
-      #avengers-data {
-        border: 1px solid #d3d6e2;
-        border-radius: 3px;
-        padding: 10px;
-        background-color: #f9f9f9;
-        letter-spacing: 1px;
-      }
-
-      td {
-        padding: 4px;
-      }
-    </style>
 
     <!-- ng app -->
-    <div ng-app="myApp" id="ng-app">
+    <div ng-app="myApp">
 
       <div ng-controller="AvengersCtrl">
-        <input type="text" ng-model="search.$">
-        <table id="avengers-data">
-          <tr ng-repeat="actor in avengers.cast | filter:search">
-            <td>{{ actor.name }}</td>
-            <td>{{ actor.character }}</td>
+        <input type="text" ng-model="search"/>
+        <table>
+          <tr ng-repeat="actor in avengers.cast | orderBy: 'name' | limitTo: 10 | filter: search ">
+            <td>{{ actor.name | lowercase }}</td>
+            <td>{{ actor.character | uppercase }}</td>
           </tr>
         </table>
       </div>
@@ -53,5 +34,4 @@
     <!-- app logic -->
     <script type="text/javascript" src="index.js">
     </script>
-  </body>
 </html>
