@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Share Data Between Controllers</title>
+    <link type="text/css" rel="stylesheet" href="../assets/foundation.min.css">
+  </head>
+  <body>
+
+    <!-- ng app -->
+    <div ng-app="myApp">
+      <div ng-controller="FirstCtrl">
+        <input type="text" ng-model="data.message"/>
+        <h2>{{ data.message }}</h2>
+      </div>
+
+      <div ng-controller="SecondCtrl">
+        <input type="text" ng-model="data.message"/>
+        <h2>{{ data.message }}</h2>
+      </div>
+    </div>
+
+    <!-- ng -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js">
+    </script>
+
+    <!-- logic -->
+    <script src="index.js">
+    </script>
+  </body>
+</html>
