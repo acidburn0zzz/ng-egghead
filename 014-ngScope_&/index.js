@@ -20,7 +20,7 @@ app.directive('phone', function () {
       dial: '&'
     },
     template: '<input type="text" ng-model="value"/>' +
-              '<div class="button" ng-click="dial({ message: value })">' +
+              '<div class="button" ng-click="dial({ message: value })"```>' +
               'Call Home' +
               '</div>'
   };
