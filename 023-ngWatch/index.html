@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="playUsOut">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Watch Example">
+    <meta name="author" content="Jared">
+    <title>$watch</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <style type="text/css">
+        .panel {
+            width: 25%;
+            margin: 30px auto;
+        }
+    </style>
+  </head>
+
+  <!-- app -->
+  <body ng-controller="WatchCtrl">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Create Account</h3>
+      </div>
+      <div class="panel-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="eml">Email address</label>
+            <input id="eml"
+                   type="email"
+                   class="form-control"
+                   placeholder="Email address"
+                   ng-model="user.email"/>
+          </div>
+          <div class="form-group">
+            <label for="eml">Password</label>
+            <input id="pwd"
+                   type="password"
+                   class="form-control"
+                   placeholder="Password"
+                   ng-model="user.password"/>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="panel panel-danger" ng-show="showReqs">
+      <div class="panel-heading">
+        <h3 class="panel-title">Password Requirements</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li ng-repeat="req in reqs">{{ req }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ng -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js">
+    </script>
+
+    <!-- logic -->
+    <script type="text/javascript" src="index.js">
+    </script>
+
+
+  </body>
+</html>
