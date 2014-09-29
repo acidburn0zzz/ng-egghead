@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Caching w/ ng">
+    <meta name="author" content="Jared">
+    <title>Gimme dah cache</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="../assets/foundation.css">
+  </head>
+  <body ng-app="eggz" ng-controller="AppCtrl as app">
+    <style>
+      li { list-style: none; }
+    </style>
+    <button ng-click="app.loadPeople()">Load people</button>
+    <button ng-click="app.clearCache()">Kill people</button>
+    <ul>
+      <li ng-repeat="person in app.people">
+        {{ person.name }}
+      </li>
+    </ul>
+
+    <!-- ng -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js">
+    </script>
+
+    <!-- logic -->
+    <script type="text/javascript" src="index.js">
+    </script>
+  </body>
+</html>
