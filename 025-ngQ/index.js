@@ -7,6 +7,7 @@ var app = angular.module('multiple-requests', []);
 app.controller('AppCtrl', function (githubService) {
   var app = this;
 
+  // poll github api for angular data points
   githubService.getAngularInfo().then(function (angularInfo) {
     console.log(angularInfo);
     app.angularInfo = angularInfo;
@@ -22,6 +23,7 @@ app.service('githubService', function GithubService ($http, $q) {
   repos = 'https://api.github.com/users/angular/repos';
   events = 'https://api.github.com/users/angular/events';
 
+  // poll user specific data
   githubService.getUser = function getUser () {
     return $http.get(user).then(function onResponse (res) {
 
@@ -33,6 +35,7 @@ app.service('githubService', function GithubService ($http, $q) {
     });
   };
 
+  // poll repo specific data
   githubService.getRepos = function getRepos () {
     return $http.get(repos).then(function onResponse (res) {
       return _.map(res.data, function (data) {
@@ -46,6 +49,7 @@ app.service('githubService', function GithubService ($http, $q) {
     });
   };
 
+  // poll event specific data
   githubService.getEvents = function getEvents () {
     return $http.get(events).then(function onResponse (res) {
       return _.map(res.data, function (data) {
@@ -60,6 +64,7 @@ app.service('githubService', function GithubService ($http, $q) {
     });
   };
 
+  // aggregate requests
   githubService.getAngularInfo = function getAngularInfo () {
     var promise_user, promise_repos, promise_events;
 
