@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="multiple-requests">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Multiple requests w/ $q">
+    <meta name="author" content="Jared">
+    <title>Multiple Requests</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="../assets/foundation.css">
+  </head>
+  <body ng-controller="AppCtrl as app">
+    <style>
+      img { height: 150px; width: 150px; }
+    </style>
+    
+    <section>
+      <h3>{{ app.angularInfo.name }}</h3>
+      <img ng-src="{{app.angularInfo.avatarUrl}}"/>
+    </section>
+
+    <section>
+      <h3>Repos</h3>
+      <div ng-repeat="repo in app.angularInfo.repos">
+        <a>{{ repo.name }}</a>
+      </div>
+
+    </section>
+
+    <section>
+      <h3>Events</h3>
+      <div ng-repeat="event in app.angularInfo.events">
+        <a>{{ event.type }}</a>
+      </div>
+    </section>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+    <!-- logic -->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
