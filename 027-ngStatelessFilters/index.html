@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Stateless Filters">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Stateless Filters">
+    <meta name="author" content="Jared">
+    <title>Stateless Filters</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="../assets/foundation.css">
+  </head>
+  <body ng-app="myApp" ng-controller="MainCtrl as vm">
+    <style>
+
+    </style>
+    <h1>Angular 1.3 Stateless Filter</h1>
+    <div angular-stats
+         watch-count=".watch-count"
+         digest-length=".digest-length">
+      <h2>Angular Stats</h2>
+      Watch Count: <span class="watch-count"></span> <br/>
+      Digest Cycle Length: <span class="digest-length"></span>
+    </div>
+    <hr/>
+    <h2>Demo</h2>
+    <label>
+      Total Items (watch count):
+      <input type="number"
+             ng-model="vm.itemCount"
+             ng-change="vm.onItemCountChange(vm.itemCount)"/> items
+    </label>
+    <br/>
+    <label>
+      Filter Wait (digest length):
+      <input type="number"
+             ng-model="vm.itemCount"
+             ng-change="vm.onItemCountChange(vm.itemCount)"/> items
+    </label>
+    <br/>
+    <br/>
+    <div ng-repeat="item in vm.totalItems"
+         class="item"
+         ng-class="{'hovering': vm.hovering[item]}"
+         ng-mouseenter="vm.hovering[item]=true"
+         ng-mouseleave="vm.hovering[item]=false">
+         {{ item | longFilter : vm.timer.wait }}
+    </div>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="https//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript" src="ng-stats"></script>
+
+    <!-- logic -->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
